@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { Col } from "react-bootstrap";
 import './index.css'
 
 import {
@@ -32,15 +33,15 @@ class App extends React.Component {
 
             <SearchkitProvider searchkit={searchkit}>
                 <Layout>
-                    <TopBar>
-
-                        <SearchBox autofocus={true} searchOnChange={true} prefixQueryFields={["actors^1", "type^2", "languages", "title^10"]} placeholder={'coucou'}/>
-                    </TopBar>
-
+                        <TopBar>
+                            <Col md={12} sm={6}>
+                                <SearchBox autofocus={true} searchOnChange={true} prefixQueryFields={["actors^1", "type^2", "languages", "title^10"]} placeholder={'coucou'}/>
+                            </Col >
+                            </TopBar>
                     <LayoutBody>
                         <SideBar>
                             <HierarchicalMenuFilter fields={["type.raw", "genres.raw"]} title="Categories" id="categories"/>
-                            <RefinementListFilter id="Ahbon" title="Ahbon" field="actors.raw" operator="aw" size={10}/>
+                            <RefinementListFilter id="actors" title="actors" field="actors.raw" operator="aw" size={10}/>
                         </SideBar>
 
                         <LayoutResults>
@@ -56,7 +57,7 @@ class App extends React.Component {
                                 </ActionBarRow>
 
                             </ActionBar>
-                            <Hits mod="sk-hits-grid" hitsPerPage={10} itemComponent={MovieHitsGridItem} sourceFilter={["title", "poster", "imdbId"]}/>
+                            <Hits mod="sk-hits-grid" hitsPerPage={40} itemComponent={MovieHitsGridItem} />
                             <NoHits/>
                         </LayoutResults>
                     </LayoutBody>
