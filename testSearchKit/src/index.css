@@ -1,3 +1,4 @@
-body{background:coral;}
-.test{background:pink;}
-.test:focus{color:green;}
+/*body{background:coral;}*/
+.test{background:green;height:200px}
+.test2{background:blue;height:200px}
+.test3{background:hotpink;height:30vh;}
