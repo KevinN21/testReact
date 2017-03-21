@@ -1,0 +1,24 @@
+body {
+  padding: 50px;
+  background-color:coral;
+  font-family: sans-serif;
+  color:white;
+
+}
+header{
+    background:white;
+    width: 30%;
+}
+header h3 {
+    font-size:2em;
+    color:white;
+}
+.test {
+    background: coral;
+    height:100%;
+    width: 100%;
+}
+.test2{
+    list-style:square;
+}
+input {border:3px solid coral;}
