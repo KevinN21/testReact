@@ -1,6 +1,5 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
-import {Col, Row} from "react-bootstrap";
+import React from "react";
+import ReactDOM from "react-dom";
 import './index.css'
 
 import {
@@ -21,9 +20,11 @@ import {
     SelectedFilters,
     ResetFilters,
     MovieHitsGridItem,
-    NoHits
+    NoHits,
+    Pagination,
 } from "searchkit";
 
+// const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance/");
 const searchkit = new SearchkitManager("http://demo.searchkit.co/api/movies/")
 
 class App extends React.Component {
@@ -34,18 +35,26 @@ class App extends React.Component {
             <SearchkitProvider searchkit={searchkit}>
                 <Layout>
                     <TopBar>
-                                <SearchBox autofocus={true} searchOnChange={true} placeholder={'coucou'}/>
+                          <div className="my-logo" >Quarks DS</div>
+                          <SearchBox
+                            translations={{"searchbox.placeholder":"Search substances"}}
+                            queryOptions={{"minimum_should_match":"70%"}}
+                            autofocus={true}
+                            searchOnChange={true} />
                     </TopBar>
+
                     <LayoutBody>
                         <SideBar>
-                            <Row>
-                                <Col className={'test2'} xs={12} md={8} sm={6}>
-                                    <HierarchicalMenuFilter fields={["type.raw", "genres.raw"]} title="Categories" id="categories"/>
-                                </Col>
-                                <Col className={'test'} xs={12} md={4} sm={6}>
-                                    <RefinementListFilter id="actors" title="actors" field="actors.raw" operator="aw" size={10}/>
-                                </Col>
-                            </Row>
+                            <HierarchicalMenuFilter
+                              fields={["type.raw", "genres.raw"]}
+                              title="Categories "
+                              id="categories" />
+                            <RefinementListFilter
+                              id="actors"
+                              title="Actors "
+                              field="actors.raw"
+                              operator="AND"
+                              size={10} />
                         </SideBar>
 
                         <LayoutResults>
@@ -61,12 +70,14 @@ class App extends React.Component {
                                 </ActionBarRow>
 
                             </ActionBar>
-                            <Row>
-                                <Col className="test3" md={12}>
-                                    <Hits mod="sk-hits-grid" hitsPerPage={40} itemComponent={MovieHitsGridItem}/>
-                                </Col>
-                                    <NoHits/>
-                            </Row>
+                                <Hits mod="sk-hits-grid" hitsPerPage={20} itemComponent={MovieHitsGridItem}/>
+                                <Pagination
+                                    pageScope={1}
+                                    showNumbers={true}
+                                    showText={true}
+                                    showLast={true}
+                                    translations={('pagination.previous,pagination.next')}/>
+                                <NoHits/>
                         </LayoutResults>
                     </LayoutBody>
                 </Layout>
@@ -75,5 +86,4 @@ class App extends React.Component {
     }
 };
 
-ReactDOM.render(
-    <App/>, document.body);
+ReactDOM.render(<App/>, document.getElementById('root'));
