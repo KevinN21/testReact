@@ -24,15 +24,15 @@ import {
     Pagination,
 } from "searchkit";
 
-// const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance/");
-const searchkit = new SearchkitManager("http://demo.searchkit.co/api/movies/")
+const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance/");
+// const searchkit = new SearchkitManager("http://demo.searchkit.co/api/movies/")
 
 class App extends React.Component {
 
     render() {
         return (
 
-            <SearchkitProvider searchkit={searchkit}>
+            <SearchkitProvider searchkit={qks}>
                 <Layout>
                     <TopBar>
                           <div className="my-logo" >Quarks DS</div>
