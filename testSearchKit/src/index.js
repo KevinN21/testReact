@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import _ from 'lodash';
 import './index.css'
 
 import {
@@ -11,7 +12,7 @@ import {
     TopBar,
     LayoutBody,
     SideBar,
-    HierarchicalMenuFilter,
+    // HierarchicalMenuFilter,
     RefinementListFilter,
     LayoutResults,
     ActionBar,
@@ -19,13 +20,33 @@ import {
     HitsStats,
     SelectedFilters,
     ResetFilters,
-    MovieHitsGridItem,
     NoHits,
     Pagination,
+    // InitialLoader,
 } from "searchkit";
 
 const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance/");
 // const searchkit = new SearchkitManager("http://demo.searchkit.co/api/movies/")
+
+const HitItem = (props) => (
+  <div className={props.bemBlocks.item().mix(props.bemBlocks.container("item"))}>
+    <img className={props.bemBlocks.item("icon")} role="presentation"  src={"data:image/svg+xml;utf8," + props.result._source.icon}/>
+    <p className={props.bemBlocks.item("formula")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.formula",props.result._source.formula)}}></p>
+    <p className={props.bemBlocks.item("name")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.name",props.result._source.name.en)}}></p>
+  </div>
+)
+
+// const RefinementOption = (props) => (
+//   <div className={props.bemBlocks.option().state({selected:props.selected}).mix(props.bemBlocks.container("item"))} onClick={props.onClick}>
+//     <div className={props.bemBlocks.option("text")}>{props.result._source.cas}</div>
+//     <div className={props.bemBlocks.option("count")}>{props.result._source.name}</div>
+//   </div>
+// )
+// const InitialLoaderComponent = (props) => (
+//   <div className="test">
+//       <p>Loading please wait...</p>
+//   </div>
+// )
 
 class App extends React.Component {
 
@@ -35,26 +56,27 @@ class App extends React.Component {
             <SearchkitProvider searchkit={qks}>
                 <Layout>
                     <TopBar>
-                          <div className="my-logo" >Quarks DS</div>
+                          <div className="my-logo">Quarks DS</div>
                           <SearchBox
-                            translations={{"searchbox.placeholder":"Search substances"}}
+                            translations={{"searchbox.placeholder":"Search"}}
+                            queryFields={["source"]}
                             queryOptions={{"minimum_should_match":"70%"}}
-                            autofocus={true}
-                            searchOnChange={true} />
+                            searchOnChange={true}
+                            autoFocus={true}/>
                     </TopBar>
 
                     <LayoutBody>
                         <SideBar>
-                            <HierarchicalMenuFilter
-                              fields={["type.raw", "genres.raw"]}
-                              title="Categories "
-                              id="categories" />
-                            <RefinementListFilter
-                              id="actors"
-                              title="Actors "
-                              field="actors.raw"
-                              operator="AND"
-                              size={10} />
+                            {/* <HierarchicalMenuFilter
+                              fields={"cas"}
+                              title="CAS Number "
+                              id="casnum" /> */}
+                             <RefinementListFilter
+                                 field='name'
+                                 tilte='Cas Number'
+                                 id='casNum'
+                                //  itemComponent="RefinementOption"
+                         />
                         </SideBar>
 
                         <LayoutResults>
@@ -70,13 +92,14 @@ class App extends React.Component {
                                 </ActionBarRow>
 
                             </ActionBar>
-                                <Hits mod="sk-hits-grid" hitsPerPage={20} itemComponent={MovieHitsGridItem}/>
-                                <Pagination
-                                    pageScope={1}
-                                    showNumbers={true}
-                                    showText={true}
+                            <Hits hitsPerPage={15} highlightFields={["name", "icon"]} sourceFilter={["name", "icon","formula"]}
+                               mod="sk-hits-grid" itemComponent={HitItem}/>
+                            {/* <InitialLoader component={InitialLoaderComponent}/> */}
+                            <Pagination
                                     showLast={true}
-                                    translations={('pagination.previous,pagination.next')}/>
+                                    showNumbers={true}
+                                    pageScope={1}
+                                />
                                 <NoHits/>
                         </LayoutResults>
                     </LayoutBody>

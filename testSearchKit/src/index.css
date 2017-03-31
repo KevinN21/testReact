@@ -1464,6 +1464,7 @@ body {
 }
 
 .sk-layout__results {
+    position: relative;
     background: #fff;
     margin: 15px;
     flex: auto;
@@ -1605,10 +1606,10 @@ body {
 
 .sk-pagination-navigation {
     width: 300px;
-    margin: 10px auto;
+    margin-top: 3%;
     position: absolute;
-    bottom: 11%;
-    left: 37%;
+    left:30%;
+    bottom: 1.5%;
 }
 
 .sk-pagination-navigation.is-numbered {
@@ -1621,7 +1622,7 @@ body {
 }
 
 .sk-hits-grid, .sk-hits-list {
-    margin: 0 15px 20px
+    margin: 0 15px 6%;
 }
 
 .sk-hits-grid {
@@ -1636,18 +1637,30 @@ body {
 }
 
 .sk-hits-grid__item {
-    flex: 1 1 250px;
     display: flex;
-    margin-bottom: 20px
-}
+    flex: 1 1 250px;
 
+    text-align: center;
+    margin: 0 6px 20px;
+
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+
+    background-color: rgba(255,255,255,0.5);
+    width: 20vw;
+    height:20vh;
+}
+.sk-hits-grid__item:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+}
 .sk-hits-grid-hit {
     padding: 10px;
-    max-width: 250px;
+    max-width: 14vw;
     flex-flow: column;
     align-content: center;
     align-items: center;
-    flex: 235px 0 0
+    flex: 216px 0 0
 }
 
 .sk-hits-grid-hit em {
@@ -1659,9 +1672,22 @@ body {
     color: #ba054d
 }
 
-.sk-hits-grid-hit__title {
-    margin-top: 10px;
-    font-size: 14px
+.sk-hits-grid-hit__icon{
+    max-width: 100%;
+    margin: 0 auto;
+}
+.sk-hits-grid-hit__formula{
+    margin:0;
+    padding:0;
+    font-weight: 200;
+    color:darkgrey;
+}
+.sk-hits-grid-hit__name{
+    margin:0;
+    padding:0;
+    font-weight: 400;
+    word-break: break-all;
+    text-overflow: ellipsis;
 }
 
 .sk-hits-list {
@@ -1699,7 +1725,7 @@ body {
     padding: 0 20px
 }
 
-.sk-hits-list-hit__poster img {
+.sk-hits-list-hit__icon img {
     max-width: 100%;
     margin: 0 auto
 }
@@ -1849,7 +1875,7 @@ body {
     }
     .sk-layout__results {
         position: relative;
-        background: #fff;
+        background: #fbffff;
         margin: 15px 0 0 0;
         flex: auto;
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
@@ -1879,21 +1905,27 @@ body {
     }
     .sk-hits-grid__item {
         display: flex;
-        flex:0;
-        margin-bottom: 2rem;
-        margin-right: 1.5rem;
-        margin-left: 2rem;
+        flex: 1 1 250px;
+        flex-direction: column;
+
+        text-align: center;
+        margin: 0 6px 20px;
+
+        box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+
+        background-color: rgba(255,255,255,0.5);
+        width: 75vw;
+        height:20vh;
     }
     .sk-pagination-navigation.is-numbered {
         width: 80vw;
     }
     .sk-pagination-navigation {
         width: 80vw;
-        margin: 0 5px;
-        position: absolute;;
-        bottom: 2%;
-        left:4%;
-        right:1%;
+        margin: 5% 5px 0 5px;
+        position: absolute;
+        bottom: 0.5%;
+        left: 4.2%
     }
     .sk-toggle-option {
         flex: 1;
@@ -1906,5 +1938,8 @@ body {
         border-right: none;
         text-decoration: none;
         white-space: nowrap
+    }
+    .sk-hits-grid-hit{
+
     }
 }
