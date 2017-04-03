@@ -30,9 +30,9 @@ const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance
 
 const HitItem = (props) => (
   <div className={props.bemBlocks.item().mix(props.bemBlocks.container("item"))}>
-    <img className={props.bemBlocks.item("icon")} role="presentation"  src={"data:image/svg+xml;utf8," + props.result._source.icon}/>
-    <p className={props.bemBlocks.item("formula")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.formula",props.result._source.formula)}}></p>
-    <p className={props.bemBlocks.item("name")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.name",props.result._source.name.en)}}></p>
+        <p className={props.bemBlocks.item("formula")}>{props.result._source.formula}</p>
+            <img className={props.bemBlocks.item("icon")} role="presentation"  src={"data:image/svg+xml;utf8," + props.result._source.icon}/>
+        <p className={props.bemBlocks.item("name")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.name",props.result._source.name.en)}}></p>
   </div>
 )
 
@@ -59,7 +59,6 @@ class App extends React.Component {
                           <div className="my-logo">Quarks DS</div>
                           <SearchBox
                             translations={{"searchbox.placeholder":"Search"}}
-                            queryFields={["source"]}
                             queryOptions={{"minimum_should_match":"70%"}}
                             searchOnChange={true}
                             autoFocus={true}/>
@@ -92,7 +91,7 @@ class App extends React.Component {
                                 </ActionBarRow>
 
                             </ActionBar>
-                            <Hits hitsPerPage={15} highlightFields={["name", "icon"]} sourceFilter={["name", "icon","formula"]}
+                            <Hits hitsPerPage={12} highlightFields={["name"]} sourceFilter={["name", "icon", "formula"]}
                                mod="sk-hits-grid" itemComponent={HitItem}/>
                             {/* <InitialLoader component={InitialLoaderComponent}/> */}
                             <Pagination
@@ -109,4 +108,4 @@ class App extends React.Component {
     }
 };
 
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render( <App/> , document.getElementById('root'));

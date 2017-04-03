@@ -1608,7 +1608,7 @@ body {
     width: 300px;
     margin-top: 3%;
     position: absolute;
-    left:30%;
+    left:25%;
     bottom: 1.5%;
 }
 
@@ -1637,17 +1637,17 @@ body {
 }
 
 .sk-hits-grid__item {
+    position: relative;
     display: flex;
     flex: 1 1 250px;
 
     text-align: center;
-    margin: 0 6px 20px;
+    margin: 0 16px 20px;
 
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-
     background-color: rgba(255,255,255,0.5);
     width: 20vw;
-    height:20vh;
+    height:27vh;
 }
 .sk-hits-grid__item:hover {
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -1655,12 +1655,12 @@ body {
       transition: opacity 0.3s ease-in-out;
 }
 .sk-hits-grid-hit {
-    padding: 10px;
-    max-width: 14vw;
+    padding: 5px;
+    max-width: 20vw;
     flex-flow: column;
     align-content: center;
     align-items: center;
-    flex: 216px 0 0
+    flex: 270px 0 0
 }
 
 .sk-hits-grid-hit em {
@@ -1683,9 +1683,10 @@ body {
     color:darkgrey;
 }
 .sk-hits-grid-hit__name{
-    margin:0;
-    padding:0;
-    font-weight: 400;
+
+    margin:3%;
+    padding:3%;
+    font-weight: 300;
     word-break: break-all;
     text-overflow: ellipsis;
 }
@@ -1901,7 +1902,7 @@ body {
         flex-flow: row;
         align-content: center;
         align-items: center;
-        flex: 190px 0 0
+        flex: 250px 0 0
     }
     .sk-hits-grid__item {
         display: flex;
@@ -1939,7 +1940,5 @@ body {
         text-decoration: none;
         white-space: nowrap
     }
-    .sk-hits-grid-hit{
 
-    }
 }
