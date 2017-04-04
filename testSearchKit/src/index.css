@@ -1,5 +1,5 @@
 html{
-    background: #f4f4f4;
+    background: #eee;
 }
 
 .layout__crime-app .layout__results {
@@ -43,7 +43,7 @@ html{
     text-decoration: none;
     padding: 0 20px;
     border-radius: 0;
-    color: #ba054d;
+    color: #dd216c;
     display: none
 }
 
@@ -314,7 +314,7 @@ html{
     border-top-color: #6c6c6c
 }
 .sk-layout{
-    background: #f4f4f4;
+    background: #eee;
 }
 .sk-spinning-loader {
     font-size: 10px;
@@ -407,7 +407,7 @@ html{
 
 .sk-action-button, .sk-no-hits__step-action, .sk-range-input__submit {
     border: 1px solid #ccc;
-    color: #ba054d;
+    color: #dd216c;
     border-radius: 0px;
     display: inline-block;
     padding: 10px 20px;
@@ -478,12 +478,12 @@ html{
     display: flex;
     flex-flow: row;
     margin-right: 10px;
-    color: #ba054d
+    color: #dd216c
 }
 
 .sk-action-bar .sk-filter-group {
     border: none;
-    background: #f4f4f4;
+    background: #eee;
     display: inline-block;
     padding: 0 0 0 10px;
     font-size: 14px;
@@ -551,7 +551,7 @@ html{
 
 .sk-item-list-option.is-active .sk-item-list-option__text, .sk-item-list-option.is-selected .sk-item-list-option__text {
     font-weight: 700;
-    color: #ba054d;
+    color: #dd216c;
 }
 
 .sk-item-list-option__text {
@@ -594,7 +594,7 @@ html{
     width: 40%;
     max-width: 60px;
     z-index: -1;
-    background: #f4f4f4;
+    background: #eee;
     overflow: hidden
 }
 
@@ -663,7 +663,7 @@ html{
     display: inline-block;
     font-weight: 500;
     font-size: 14px;
-    color: #ba054d;
+    color: #dd216c;
     padding: 10px 15px;
     text-decoration: none;
     margin-bottom: -1px;
@@ -674,7 +674,7 @@ html{
 .sk-tabs-option.is-active {
     background-color: #fff;
     color: #666;
-    border-color: #ba054d;
+    border-color: #dd216c;
     cursor: default;
     border: 1px solid #ccc;
     border-bottom-color: transparent
@@ -767,7 +767,7 @@ html{
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
-    color: #ba054d;
+    color: #dd216c;
     padding: 5px 10px;
     border-right: none;
     text-decoration: none;
@@ -784,9 +784,9 @@ html{
 }
 
 .sk-toggle-option.is-active {
-    background-color: #ba054d;
+    background-color: #dd216c;
     color: #fff;
-    border-color: #ba054d
+    border-color: #dd216c
 }
 
 .sk-toggle-option.is-disabled {
@@ -916,7 +916,7 @@ html{
 
 .sk-hierarchical-menu-option.is-active .sk-hierarchical-menu-option__text, .sk-hierarchical-menu-option.is-selected .sk-hierarchical-menu-option__text {
     font-weight: 700;
-    color: #ba054d;
+    color: #dd216c;
 }
 
 .sk-hierarchical-menu-option__text {
@@ -1027,7 +1027,7 @@ html{
 
 .sk-refinement-list__view-more-action {
     font-size: 12px;
-    color: #ba054d;
+    color: #dd216c;
     cursor: pointer;
     margin-top: 5px
 }
@@ -1075,7 +1075,7 @@ html{
 .sk-selected-filters-option {
     position: relative;
 
-    border: 1px solid #ba054d;
+    border: 1px solid #dd216c;
     display: flex;
     padding: 10px 0 10px 10px;
     font-size: 14px;
@@ -1085,7 +1085,7 @@ html{
 
 .sk-selected-filters-option__name {
     flex: auto;
-    color: #ba054d
+    color: #dd216c
 }
 .sk-selected-filters-option__name::after {
     content:' ';
@@ -1100,7 +1100,7 @@ html{
     cursor: pointer;
     font-size: 16px;
     line-height: 18px;
-    color: #ba054d;
+    color: #dd216c;
     font-weight: 700;
     border-left: 1px solid #ddd;
     padding: 0 15px 0 10px;
@@ -1163,7 +1163,7 @@ html{
     border-radius: 0px;
     padding: 10px 20px;
     cursor: pointer;
-    color: #ba054d;
+    color: #dd216c;
 }
 
 .sk-reset-filters.is-disabled {
@@ -1268,7 +1268,7 @@ html{
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
-    color: #ba054d;
+    color: #dd216c;
     padding: 5px 10px;
     border-right: none
 }
@@ -1283,10 +1283,10 @@ html{
 }
 
 .sk-view-switcher__action.is-active {
-    background-color: #ba054d;
+    background-color: #dd216c;
     color: #fff;
     font-weight: 700;
-    border-color: #ba054d
+    border-color: #dd216c
 }
 
 .sk-table {
@@ -1411,12 +1411,12 @@ body {
 
 .sk-layout {
     box-sizing: border-box;
-    background: #f4f4f4;
+    background: #eee;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
 }
 
 .sk-layout__top-bar {
-    background: #ba054d;
+    background: #dd216c;
     height: 60px;
     position: fixed;
     top: 0;
@@ -1435,7 +1435,7 @@ body {
 }
 
 .sk-layout__filters {
-    background: #fff;
+    background: rgba(255,255,255, 0.5);;
     padding: 15px;
     margin: 15px 0 15px 15px;
     flex: 0 0 246px;
@@ -1465,7 +1465,7 @@ body {
 
 .sk-layout__results {
     position: relative;
-    background: #fff;
+    background: rgba(255,255,255,0.5);
     margin: 15px;
     flex: auto;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .08);
@@ -1600,7 +1600,7 @@ body {
 }
 
 .sk-selected-filters-option {
-    background: #f4f4f4;
+    background: #eee;
     border: none
 }
 
@@ -1613,7 +1613,7 @@ body {
 }
 
 .sk-pagination-navigation.is-numbered {
-    width: 600px
+    width: 38vw;
 }
 
 .sk-pagination-select {
@@ -1645,7 +1645,7 @@ body {
     margin: 0 16px 20px;
 
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,1);
     width: 20vw;
     height:27vh;
 }
@@ -1669,7 +1669,7 @@ body {
 
 .sk-hits-grid-hit a {
     text-decoration: none;
-    color: #ba054d
+    color: #dd216c
 }
 
 .sk-hits-grid-hit__icon{
@@ -1703,7 +1703,7 @@ body {
 
 .sk-hits-list a {
     text-decoration: none;
-    color: #ba054d
+    color: #dd216c
 }
 
 .sk-hits-list__no-results {
@@ -1860,7 +1860,7 @@ body {
         cursor: pointer;
         font-size: 16px;
         line-height: 18px;
-        color: #ba054d;
+        color: #dd216c;
         font-weight: 700;
         border-left: 1px solid #ddd;
         padding: 0 15px 0 10px;
@@ -1934,7 +1934,7 @@ body {
         cursor: pointer;
         font-weight: 500;
         font-size: 13px;
-        color: #ba054d;
+        color: #dd216c;
         padding: 5px 10px;
         border-right: none;
         text-decoration: none;

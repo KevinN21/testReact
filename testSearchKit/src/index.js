@@ -13,7 +13,8 @@ import {
     LayoutBody,
     SideBar,
     // HierarchicalMenuFilter,
-    RefinementListFilter,
+    NumericRefinementListFilter,
+    RangeFilter,
     LayoutResults,
     ActionBar,
     ActionBarRow,
@@ -22,7 +23,7 @@ import {
     ResetFilters,
     NoHits,
     Pagination,
-    // InitialLoader,
+    InitialLoader,
 } from "searchkit";
 
 const qks = new SearchkitManager("http://optimus2.qks.io:9200/quarksds/substance/");
@@ -32,21 +33,10 @@ const HitItem = (props) => (
   <div className={props.bemBlocks.item().mix(props.bemBlocks.container("item"))}>
         <p className={props.bemBlocks.item("formula")}>{props.result._source.formula}</p>
             <img className={props.bemBlocks.item("icon")} role="presentation"  src={"data:image/svg+xml;utf8," + props.result._source.icon}/>
-        <p className={props.bemBlocks.item("name")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.name",props.result._source.name.en)}}></p>
+        <p className={props.bemBlocks.item("name")} dangerouslySetInnerHTML={{__html:_.get(props.result,"highlight.name",props.result._source.name.fr)}}></p>
   </div>
 )
 
-// const RefinementOption = (props) => (
-//   <div className={props.bemBlocks.option().state({selected:props.selected}).mix(props.bemBlocks.container("item"))} onClick={props.onClick}>
-//     <div className={props.bemBlocks.option("text")}>{props.result._source.cas}</div>
-//     <div className={props.bemBlocks.option("count")}>{props.result._source.name}</div>
-//   </div>
-// )
-// const InitialLoaderComponent = (props) => (
-//   <div className="test">
-//       <p>Loading please wait...</p>
-//   </div>
-// )
 
 class App extends React.Component {
 
@@ -59,47 +49,41 @@ class App extends React.Component {
                           <div className="my-logo">Quarks DS</div>
                           <SearchBox
                             translations={{"searchbox.placeholder":"Search"}}
-                            queryOptions={{"minimum_should_match":"70%"}}
                             searchOnChange={true}
                             autoFocus={true}/>
-                    </TopBar>
+                        </TopBar>
 
                     <LayoutBody>
                         <SideBar>
-                            {/* <HierarchicalMenuFilter
-                              fields={"cas"}
-                              title="CAS Number "
-                              id="casnum" /> */}
-                             <RefinementListFilter
-                                 field='name'
-                                 tilte='Cas Number'
-                                 id='casNum'
-                                //  itemComponent="RefinementOption"
-                         />
+                            <NumericRefinementListFilter id="onu" title="ONU " field="onu" options={[
+                            {title:"All"},
+                            {title:"up to 1000", from:0, to:1001},
+                            {title:"1001 to 2000", from:1001, to:2001},
+                            {title:"2001 to 3000", from:2001, to:3001},
+                            {title:"3001 to 4000", from:3001, to:4001},
+                            {title:"4001 to 5000", from:4001, to:5001}
+                          ]}/>
+                          <RangeFilter field="onu" id="onu_range" min={0} max={5000} showHistogram={true} title="ONU RANGE "/>
                         </SideBar>
 
                         <LayoutResults>
-                            <ActionBar>
 
+                            <ActionBar>
                                 <ActionBarRow>
                                     <HitsStats/>
-                                </ActionBarRow>
-
-                                <ActionBarRow>
                                     <SelectedFilters/>
                                     <ResetFilters/>
                                 </ActionBarRow>
-
                             </ActionBar>
-                            <Hits hitsPerPage={12} highlightFields={["name"]} sourceFilter={["name", "icon", "formula"]}
+
+                            <Hits hitsPerPage={12} highlightFields={["name","formula", "cas"]} sourceFilter={["name", "icon", "formula", "cas"]}
                                mod="sk-hits-grid" itemComponent={HitItem}/>
-                            {/* <InitialLoader component={InitialLoaderComponent}/> */}
+                            <InitialLoader />
                             <Pagination
                                     showLast={true}
                                     showNumbers={true}
-                                    pageScope={1}
-                                />
-                                <NoHits/>
+                                    pageScope={1} />
+                            <NoHits/>
                         </LayoutResults>
                     </LayoutBody>
                 </Layout>
